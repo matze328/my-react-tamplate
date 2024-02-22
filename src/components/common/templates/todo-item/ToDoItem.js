@@ -32,6 +32,7 @@ function ToDoItem({ todo }) {
       </label>
 
       <StandardBtn text={"DELETE"} onClick={onClickDelete} />
+      <StandardBtn text={"EDIT"} onClick={onClickDelete} />
     </div>
   );
 }

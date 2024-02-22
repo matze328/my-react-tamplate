@@ -20,7 +20,18 @@ async function markTodo(todoId, isDone) {
 
   return todo;
 }
+async function updateTodo(todoId, newTask, newIsDone, newDueDate) {
+  const result = await api.put("/todos/update", {
+    todoId : todoId,
+    newTask: newTask,
+    newIsDone: newIsDone,
+    newDueDate: newDueDate,
+  });
 
+  const todo = result.data.updatedTodo;
+
+  return todo;
+}
 async function deleteTodo(todoId) {
   const result = await api.delete("/todos/delete", {
     data: { todoId },
@@ -31,4 +42,4 @@ async function deleteTodo(todoId) {
   return deletedTodoId;
 }
 
-export default { createTodo, markTodo, deleteTodo };
+export default { createTodo, markTodo, deleteTodo, updateTodo };
